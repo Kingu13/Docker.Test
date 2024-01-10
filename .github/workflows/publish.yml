@@ -2,9 +2,9 @@ name: Publish Docker Image
 
 
 on:
-    push:
-        branches:
-            - main
+  push:
+     branches:
+             - main
 
 jobs:
     build:
@@ -23,6 +23,6 @@ jobs:
               run: |
                 dotnet restore
                 dotnet build
-                
+
             - name: build docker image
               run: docker build -t kingu13/docker-test

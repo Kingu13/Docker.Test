@@ -12,19 +12,19 @@ jobs:
      runs-on: ubuntu-latest
       
       
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    steps:
+        - name: Checkout repository
+          uses: actions/checkout@v3
       
-    - name: Set up .net
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '6.x'
+        - name: Set up .net
+          uses: actions/setup-dotnet@v3
+          with:
+            dotnet-version: '6.x'
       
-    - name: Restore and build
-      run: |
-        dotnet restore
-        dotnet build
+        - name: Restore and build
+          run: |
+            dotnet restore
+            dotnet build
 
-    - name: Build docker image
-      run: docker build -t kingu13/docker-test .
+        - name: Build docker image
+          run: docker build -t kingu13/docker-test .

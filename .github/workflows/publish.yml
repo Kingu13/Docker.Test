@@ -10,7 +10,7 @@
                     runs-on: ubuntu-latest
                 
                     steps:
-                      - name: Checkout repository
+                      - name: Checkout respository
                         uses: actions/checkout@v3
                 
                       - name: Set up .net
@@ -28,6 +28,6 @@
                 
                       - name: Build and push docker image
                         run: |
-                          docker build -t davidsvson/kyh-docker-example .
-                          docker push davidsvson/kyh-docker-example
+                          docker build -t kingu13/docker-program .
+                          docker push kingu13/docker-program
                 

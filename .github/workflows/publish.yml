@@ -1,28 +1,32 @@
-name: Publish Docker Image
-
+name: publish Docker image
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+        - main
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout respository
-              uses: actions/checkout@v3
+    steps:    
+    uses: actions/checkout@v3
 
-            - name: Set up .net
-              uses: actions/setup-dotnet@v3
-              with:
-                dotnet-version: '6.x'
+    name: Checkout respository
+    uses: actions/checkout@v3
 
-            - name: Restore and build
-              run: |
-                dotnet restore
-                dotnet build
+      
+    name: set up .net
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6.x'
 
-            - name: build docker image
-              run: docker build -t kingu13/docker-test .
+      
+    name: restore and build
+      run: |
+          dotnet restore
+          dotnet build
+
+      
+    name: Build docker image
+      run: docker build -t kingu13/docker-test .
